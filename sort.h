@@ -20,11 +20,11 @@ typedef struct listint_s
 
 void print_array(const int *array, size_t size);
 void print_list(const listint_t *list);
-void merge(int *array, int l, int m, int r, int *final_array)
-void call_to_sort(int *array, int l, int r, int *final_array)
-void merge_sort(int *array, size_t size)
-int max(int *a, int n, int i, int j, int k)
-void sift(int *a, int n, int i)
-void heap_sort(int *array, size_t size)
+void merge(int *array, int l, int m, int r, int *final_array);
+void call_to_sort(int *array, int l, int r, int *final_array);
+void merge_sort(int *array, size_t size);
+int max(int *a, int n, int i, int j, int k);
+void sift(int *a, int n, int i);
+void heap_sort(int *array, size_t size);
 
 #endif
