@@ -1,90 +1,74 @@
 #include "sort.h"
-
+void helper(int *array, int *tmp, size_t lo, size_t hi);
+void merge(int *a, int *tmp, size_t llo, size_t lhi, size_t rlo, size_t rhi);
 /**
-* merge - Sorts array
-* @l: starting point of array
-* @r: ending point of array
-* @m: mid point of array
-* @array: array to be sorted
-* @final_array: final array
-* Return: Sorted array
-**/
-
-void merge(int *array, int l, int m, int r, int *final_array)
-{
-    int i = l;
-    int j = m + 1;
-    int k = l;
-
-    while (i <= m && j <= r)
-    {
-        if (array[i] <= array[j])
-        {
-            final_array[k] = array[i];
-            k++;
-            i++;
-        }
-        else
-        {
-            final_array[k] = array[j];
-            k++;
-            j++;
-        }
-    }
-
-    while (i <= m)
-    {
-        final_array[k] = array[i];
-        k++;
-        i++;
-    }
-
-    for (i = l; i <= r; i++) {
-        array[i] = final_array[i];
-    }
-}
-
-/**
-* call_to_sort - Sorts array in ascending order
-* @l: starting point of array
-* @r: ending point of array
-* @array: array to be sorted
-* @final_array: final array
-* Return: Sorted array
-**/
-
-void call_to_sort(int *array, int l, int r, int *final_array)
-{
-    int m;
-
-    if (l < r)
-    {
-        m = (r + l) / 2;
-        call_to_sort(array, l, m, final_array);
-        call_to_sort(array, m + 1, r, final_array);
-        merge(array, l, m, r, final_array);
-    }
-}
-
-/**
-* merge_sort - Sorts array in ascending order
-* @array: array to be sorted
-* @size: size of array
-* Return: Sorted array
-**/
-
+ * merge_sort - merge_sort on an array
+ * @array: array
+ * @size: size of array
+ */
 void merge_sort(int *array, size_t size)
 {
-    int *final_array;
+	int *tmp = NULL;
 
-    if (size < 2)
-        return;
+	if (!array || size < 2)
+		return;
+	tmp = malloc(sizeof(int) * size);
+	if (!tmp)
+		return;
+	if (size > 1)
+		helper(array, tmp, 0, size - 1);
+	free(tmp);
+}
+/**
+ * helper - merge sort helper
+ * @array: array
+ * @tmp: buffer
+ * @lo: low index of sub array
+ * @hi: high index of sub array
+ */
+void helper(int *array, int *tmp, size_t lo, size_t hi)
+{
+	if (hi > lo)
+	{
+		helper(array, tmp, lo, (lo + hi + 1) / 2 - 1);
+		helper(array, tmp, (lo + hi + 1) / 2, hi);
+		merge(array, tmp, lo, (lo + hi + 1) / 2 - 1,
+		      (lo + hi + 1) / 2, hi);
+	}
+}
+/**
+ * merge - merge two sub list
+ * @a: array
+ * @tmp: buffer
+ * @llo: low index of left sub list
+ * @lhi: high index of left sub list
+ * @rlo: low index of right sub list
+ * @rhi: high index of right sub list
+ */
+void merge(int *a, int *tmp, size_t llo, size_t lhi, size_t rlo, size_t rhi)
+{
+	size_t lhead = llo, lsize = lhi - llo + 1;
+	size_t rhead = rlo, rsize = rhi - rlo + 1;
+	size_t i = llo;
 
-    final_array = malloc(sizeof(int) * size);
-
-    if (!final_array || !array)
-        return;
-
-    call_to_sort(array, 0, size, final_array);
-    free(final_array);
+	printf("Merging...\n");
+	printf("[left]: ");
+	print_array(a + lhead, lsize);
+	printf("[right]: ");
+	print_array(a + rhead, rsize);
+	while (llo <= lhi && rlo <= rhi)
+	{
+		if (a[llo] <= a[rlo])
+			tmp[i++] = a[llo++];
+		else
+			tmp[i++] = a[rlo++];
+	}
+	while (llo <= lhi)
+		tmp[i++] = a[llo++];
+	while (rlo <= rhi)
+		tmp[i++] = a[rlo++];
+	for (i = lhead; i <= rhi; i++)
+		a[i] = tmp[i];
+	printf("[Done]: ");
+	print_array(a + lhead, lsize + rsize);
 }
