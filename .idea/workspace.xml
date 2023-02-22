@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a68a0d67-d2a2-4f11-9b3e-8692c6c4a48a" name="Changes" comment="added files" />
+    <list default="true" id="a68a0d67-d2a2-4f11-9b3e-8692c6c4a48a" name="Changes" comment="updated files">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,6 +37,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -47,6 +50,7 @@
       <option name="presentableId" value="Default" />
       <updated>1673414582661</updated>
       <workItem from="1673414583843" duration="558000" />
+      <workItem from="1674103825766" duration="1138000" />
     </task>
     <task id="LOCAL-00001" summary="added files">
       <created>1673414761887</created>
@@ -55,7 +59,21 @@
       <option name="project" value="LOCAL" />
       <updated>1673414761887</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="updated files">
+      <created>1674104070895</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1674104070895</updated>
+    </task>
+    <task id="LOCAL-00003" summary="updated files">
+      <created>1674104252707</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1674104252707</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -63,6 +81,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added files" />
-    <option name="LAST_COMMIT_MESSAGE" value="added files" />
+    <MESSAGE value="updated files" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated files" />
   </component>
 </project>
